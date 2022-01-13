@@ -10,6 +10,8 @@
  * 2. (100 points) Create the constructor inside the class `Card` that initializes color and number
  * 3. (100 points) after creating the class, create 4 objects from the class Card for Green, Blue, Red, and Yellow cards, give them any numbers.
  * 4. (50 points) console.log every single object.
+ * 
+ * 
  * 5. (200 points) Add a method to class Card called `image()` that doesn't take any parameter, and it returns a string that represent the image path stored corresponding to card info
  *    The image path is as follows `./images/COLOR_NUMBER.png`
  *    Examples:
@@ -31,6 +33,62 @@
 let cards = []; // You will use this array in step 6
 
 // Continue the code here 👇🏻
+theImageRef = {
+  Blue:"./images/Blue_",
+  Green:"./images/Green_",
+  Red:"./images/Red_",
+  Yellow:"./images/Yellow_",
+}
+class Card
+{
+  constructor({number="0", color})
+  {
+    this.number = number;
+    this.color = color;
+    this.img = `${theImageRef[this.color]}${this.number}.png`;
+  }
+
+  image()
+  {
+    return this.img;
+  }
+}
+
+// const card1 = new Card({color: "Blue"});
+// const card2 = new Card({color: "Green"});
+// const card3 = new Card({color: "Yellow"});
+// const card4 = new Card({color: "Red"});
+
+// console.log(card1,card2,card3,card4);
+
+// cards.push(card1,card2,card3);
+// console.log(cards);
+const myCardsColor = {
+  0:"Yellow",
+  1:"Blue",
+  2:"Green",
+  3:"Red"
+}
+for(col=0; col<4;col++)
+{
+  for(i=0; i<10; i++)
+  {
+    for(j=0; j<2; j++)
+    {
+      cards.push(new Card({color:myCardsColor[col],number:i}));
+    }
+  }
+}
+
+ cards = cards
+  .map((value) => ({ value, sort: Math.random() }))
+  .sort((a, b) => a.sort - b.sort)
+  .map(({ value }) => value)
+
+console.log(cards);
+
+
+
 
 /**
  *
